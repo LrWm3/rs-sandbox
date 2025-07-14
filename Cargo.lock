@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "rs-sandbox"
+name = "quasi_arc"
 version = "0.1.0"
