@@ -1,3 +1,10 @@
 [workspace]
 resolver = "3"
-members = [ "crates/otel_posix_pseudo_propegator","crates/quasi_arc"]
+members = [ "crates/otel_posix_pseudo_propegator","crates/quasi_arc","crates/opentelemetry-dylib"]
+
+
+[patch.crates-io]
+opentelemetry = { path = "crates/opentelemetry-dylib" }
+
+[workspace.dependencies]
+opentelemetry = "0.30.0"

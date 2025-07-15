@@ -1,0 +1,25 @@
+[package]
+name = "opentelemetry"        # *this* is the crate name consumers see
+version = "0.30.0"            # match the version you want
+edition = "2024"
+publish = false               # never publish this wrapper
+
+[lib]
+crate-type = ["dylib"]        # <-- build a .so
+
+[dependencies]
+# pull in the real rlib under a different alias
+opentelemetry_rlib = { git = "https://github.com/open-telemetry/opentelemetry-rust.git", tag = "opentelemetry-0.30.0", package = "opentelemetry" }
+
+[features]
+# expose the same feature names that downstream wants
+default = []                  # no features on by default
+metrics = ["opentelemetry_rlib/metrics"]
+trace = ["opentelemetry_rlib/trace"]
+logs = ["opentelemetry_rlib/logs"]
+internal-logs = ["opentelemetry_rlib/internal-logs"]
+# (if you need to support other features like "rt-tokio" or "metrics",
+#  you can add lines here forwarding those, e.g.
+# rt-tokio = ["opentelemetry_rlib/rt-tokio"]
+# trace     = ["opentelemetry_rlib/trace"]
+# etc.)

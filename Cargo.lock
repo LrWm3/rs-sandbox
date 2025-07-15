@@ -223,8 +223,14 @@ checksum = "42f5e15c9953c5e4ccceeb2e7382a716482c34515315f7b03532b8b4e8393d2d"
 [[package]]
 name = "opentelemetry"
 version = "0.30.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aaf416e4cb72756655126f7dd7bb0af49c674f4c1b9903e80c009e0c37e552e6"
+dependencies = [
+ "opentelemetry 0.30.0 (git+https://github.com/open-telemetry/opentelemetry-rust.git?tag=opentelemetry-0.30.0)",
+]
+
+[[package]]
+name = "opentelemetry"
+version = "0.30.0"
+source = "git+https://github.com/open-telemetry/opentelemetry-rust.git?tag=opentelemetry-0.30.0#c811cde1ae21c624870c1b952190e687b16f76b8"
 dependencies = [
  "futures-core",
  "futures-sink",
@@ -243,7 +249,7 @@ dependencies = [
  "futures-channel",
  "futures-executor",
  "futures-util",
- "opentelemetry",
+ "opentelemetry 0.30.0",
  "percent-encoding",
  "rand",
  "serde_json",
@@ -256,7 +262,7 @@ version = "0.1.0"
 dependencies = [
  "assert_cmd",
  "libc",
- "opentelemetry",
+ "opentelemetry 0.30.0",
  "opentelemetry_sdk",
  "predicates",
 ]
