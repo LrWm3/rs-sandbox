@@ -2,8 +2,6 @@
 name = "otel_posix_pseudo_propegator"
 version = "0.1.0"
 edition = "2024"
-# build.rs statically links to the C library pthread_create
-build = "build.rs"
 
 [lib] 
 crate-type = ["cdylib"]
@@ -18,3 +16,5 @@ opentelemetry = { version = "0.30" }
 [dev-dependencies]
 # OpenTelemetry SDK for testing
 opentelemetry_sdk = { version = "0.30", features = ["trace"] }
+assert_cmd = "2.0"
+predicates = "3.0"
